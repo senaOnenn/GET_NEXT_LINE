@@ -4,21 +4,24 @@
 
 int main(void)
 {
-    int fd = open("test.txt", O_RDONLY);
-    char *line;
+    int fd = open("single.txt", O_RDONLY);
+    char *line[100];
+    int count = 0;
 
     if (fd < 0)
     {
         perror("Dosya açılamadı");
         return (1);
     }
+    while((line[count] = get_next_line(fd)) != NULL)
+        count++;
+    close (fd);
 
-    while ((line = get_next_line(fd)) != NULL)
+    while (count > 0)
     {
-        printf("%s", line);
-        free(line);
+        count --;
+        printf("%s", line[count]);
+        free(line[count]);
     }
-
-    close(fd);
     return (0);
 }
