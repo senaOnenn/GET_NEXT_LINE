@@ -6,7 +6,7 @@
 /*   By: eonen <eonen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 12:02:41 by eonen             #+#    #+#             */
-/*   Updated: 2025/08/13 12:48:06 by eonen            ###   ########.fr       */
+/*   Updated: 2025/08/16 10:33:06 by eonen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,23 +103,4 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	ft_memcpy(substr, s + start, actuallen);
 	substr[actuallen] = '\0';
 	return (substr);
-}
-char	*ft_strdup(const char *s)
-{
-	int len;
-	char *dest;
-	int i;
-
-	len = ft_strlen(s);
-	dest = malloc(len + 1);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		dest[i] = s[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }
